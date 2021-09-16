@@ -3,8 +3,8 @@ import { VISIBILITY_FILTERS } from "../constants";
 export type VisibilityFilterTypes = typeof VISIBILITY_FILTERS[keyof typeof VISIBILITY_FILTERS];
 
 export type TodoState = {
-  allIds: Array<Number>,
-  byIds: { [key: string]: TodoItemState }
+  allIds: Array<number>;
+  byIds: { [key: string]: TodoItemState };
 };
 
 export type TodoItemState = {
@@ -14,5 +14,5 @@ export type TodoItemState = {
 
 export type State = {
   visibilityFilter: VisibilityFilterTypes;
-  todo: TodoState;
+  todos: TodoState;
 };

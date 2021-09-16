@@ -2,7 +2,7 @@ import { State } from "./types";
 
 export type TodoItem = {
   content: string;
-  completed: string;
+  completed: boolean;
   id: number;
 };
 
