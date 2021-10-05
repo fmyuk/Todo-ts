@@ -6,7 +6,7 @@ const VisibilityFilters = () => {
   const activeFilter = "all";
   return (
     <div className="visibility-filters">
-      {(Object.keys(VISIBILITY_FILTERS) as Array<keyof typeof VISIBILITY_FILTERS).map((filterKey) => {
+      {(Object.keys(VISIBILITY_FILTERS) as Array<keyof typeof VISIBILITY_FILTERS>).map((filterKey) => {
         const currentFilter = VISIBILITY_FILTERS[filterKey];
         return (
           <span

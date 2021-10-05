@@ -7,7 +7,7 @@ type AddTodoState = {
 class AddTodo extends React.Component<{}, AddTodoState> {
   constructor(props: {}) {
     super(props);
-    this.state = {input: ""}
+    this.state = { input: "" };
   }
 
   updateInput = (input: string) => {
@@ -28,6 +28,8 @@ class AddTodo extends React.Component<{}, AddTodoState> {
           Add Todo
         </button>
       </div>
-    )
+    );
   }
 }
+
+export default AddTodo;
