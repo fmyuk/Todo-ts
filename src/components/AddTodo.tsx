@@ -1,11 +1,17 @@
 import React from "react";
+import { connect } from "react-redux";
+import { addTodo, TodoActions } from "../redux/actions";
+
+type AddTodoProps = {
+  addTodo: (input: string) => TodoActions
+};
 
 type AddTodoState = {
   input: string
 };
 
-class AddTodo extends React.Component<{}, AddTodoState> {
-  constructor(props: {}) {
+class AddTodo extends React.Component<AddTodoProps, AddTodoState> {
+  constructor(props: AddTodoProps) {
     super(props);
     this.state = { input: "" };
   }
@@ -15,6 +21,8 @@ class AddTodo extends React.Component<{}, AddTodoState> {
   };
 
   handleAddTodo = () => {
+    this.props.addTodo(this.state.input);
+    this.setState({ input: "" });
   };
 
   render() {
@@ -32,4 +40,7 @@ class AddTodo extends React.Component<{}, AddTodoState> {
   }
 }
 
-export default AddTodo;
+export default connect(
+  null,
+  { addTodo }
+)(AddTodo);
