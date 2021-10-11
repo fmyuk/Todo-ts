@@ -3,11 +3,11 @@ import { connect } from "react-redux";
 import { addTodo, TodoActions } from "../redux/actions";
 
 type AddTodoProps = {
-  addTodo: (input: string) => TodoActions
+  addTodo: (input: string) => TodoActions;
 };
 
 type AddTodoState = {
-  input: string
+  input: string;
 };
 
 class AddTodo extends React.Component<AddTodoProps, AddTodoState> {
