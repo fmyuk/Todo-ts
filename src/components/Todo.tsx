@@ -1,6 +1,8 @@
 import React from "react";
 import cx from "classnames";
 import { TodoItem } from "../redux/selectors";
+import { toggleTodo } from "../redux/actions";
+import { connect } from "react-redux";
 
 type TodoProps = {
   todo: TodoItem;
@@ -9,7 +11,7 @@ type TodoProps = {
 const Todo: React.FC<TodoProps> = ({ todo }) => (
   <li
     className="todo-item"
-    onClick={() => { }}
+    onClick={() => toggleTodo(todo.id)}
   >
     {todo && todo.completed ? "👌" : "👋"}{" "}
     <span
@@ -23,4 +25,7 @@ const Todo: React.FC<TodoProps> = ({ todo }) => (
   </li>
 );
 
-export default Todo;
+export default connect(
+  null,
+  { toggleTodo }
+)(Todo);
