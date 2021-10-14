@@ -1,9 +1,17 @@
 import React from "react";
 import cx from "classnames";
 import { VISIBILITY_FILTERS } from "../constants";
+import { TodoActions } from "../redux/actions";
+import { setFilter } from "../redux/actions";
+import { State, VisibilityFilterTypes } from "../redux/types";
+import { connect } from "react-redux";
 
-const VisibilityFilters = () => {
-  const activeFilter = "all";
+type VisibilityFiltersProps = {
+  activeFilter: VisibilityFilterTypes;
+  setFilter: (filter: VisibilityFilterTypes) => TodoActions;
+};
+
+const VisibilityFilters: React.FC<VisibilityFiltersProps> = ({activeFilter, setFilter}) => {
   return (
     <div className="visibility-filters">
       {(Object.keys(VISIBILITY_FILTERS) as Array<keyof typeof VISIBILITY_FILTERS>).map((filterKey) => {
@@ -15,7 +23,7 @@ const VisibilityFilters = () => {
               "filter",
               currentFilter === activeFilter && "filter--active"
             )}
-            onClick={() => { }}
+            onClick={() => setFilter(currentFilter)}
           >
             {currentFilter}
           </span>
@@ -25,4 +33,11 @@ const VisibilityFilters = () => {
   );
 };
 
-export default VisibilityFilters;
+const mapStateToProps = (state: State) => {
+  return { activeFilter: state.visibilityFilter };
+};
+
+export default connect(
+  mapStateToProps,
+  { setFilter }
+)(VisibilityFilters);

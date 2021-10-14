@@ -40,7 +40,7 @@ type SetFilterAction = {
   }
 }
 
-export const SetFilterAction = (filter: VisibilityFilterTypes): SetFilterAction => ({
+export const setFilter = (filter: VisibilityFilterTypes): SetFilterAction => ({
   type: ActionTypes.SET_FILETER,
   payload: { filter }
 });
