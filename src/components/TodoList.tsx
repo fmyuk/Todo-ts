@@ -1,6 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
-import { getTodos, getTodosByVisibilityFilter, TodoItem } from "../redux/selectors";
+import { getTodosByVisibilityFilter, TodoItem } from "../redux/selectors";
 import { State } from "../redux/types";
 import Todo from "./Todo";
 
