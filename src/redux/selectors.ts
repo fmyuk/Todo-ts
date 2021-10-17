@@ -1,4 +1,18 @@
-import { State } from "./types";
+import { VISIBILITY_FILTERS } from "../constants";
+import { State, VisibilityFilterTypes } from "./types";
+
+export const getTodosByVisibilityFilter = (store: State, visibilityFilter: VisibilityFilterTypes): TodoItem[] => {
+  const allTodos = getTodos(store);
+  switch (visibilityFilter) {
+    case VISIBILITY_FILTERS.COMPLETED:
+      return allTodos.filter(todo => todo.completed);
+    case VISIBILITY_FILTERS.INCOMPLETE:
+      return allTodos.filter(todo => !todo.completed);
+    case VISIBILITY_FILTERS.ALL:
+    default:
+      return allTodos;
+  }
+}
 
 export type TodoItem = {
   content: string;
