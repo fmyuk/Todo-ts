@@ -11,7 +11,7 @@ type VisibilityFiltersProps = {
   setFilter: (filter: VisibilityFilterTypes) => TodoActions;
 };
 
-const VisibilityFilters: React.FC<VisibilityFiltersProps> = ({activeFilter, setFilter}) => {
+const VisibilityFilters: React.FC<VisibilityFiltersProps> = ({ activeFilter, setFilter }) => {
   return (
     <div className="visibility-filters">
       {(Object.keys(VISIBILITY_FILTERS) as Array<keyof typeof VISIBILITY_FILTERS>).map((filterKey) => {
